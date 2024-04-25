@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplication Table Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<div>
+    <h2>Загальний рахунок <span id="score">0%</span></h2>
+    <button onclick="nextQuestion()">Наступне завдання</button>
+    <div style="display: flex;">
+        <p id="question">3 × 4 = </p>
+        <input style="height: 15px; margin-top: 13px; margin-left: 5px;" type="text" id="answer">
+    </div>
+    <button id="button_chek" onclick="checkAnswer()">Перевірити</button>
+    <p id="result"></p>
+</div>
+
+<script>
+let currentQuestion = 1;
+let correctAnswers = 0;
+
+function nextQuestion() {
+    const x = Math.floor(Math.random() * 9) + 1;
+    const y = Math.floor(Math.random() * 9) + 1;
+    document.getElementById('question').textContent = `${x} × ${y} =`;
+    document.getElementById('answer').value = '';
+    currentQuestion++;
+}
+
+function checkAnswer() {
+
+    const userAnswer = parseInt(document.getElementById('answer').value);
+    const questionParts = document.getElementById('question').textContent.split(' × ');
+    const x = parseInt(questionParts[0]);
+    const y = parseInt(questionParts[1]);
+    const correctAnswer = x * y;
+
+  
+    if (userAnswer === correctAnswer) {
+        correctAnswers++;
+        document.getElementById('result').textContent = 'Правильно!';
+    } else {
+        document.getElementById('result').textContent = `Помилка, правильна відповідь ${correctAnswer}`;
+    }
+
+    const score = Math.round((correctAnswers / currentQuestion) * 100);
+    document.getElementById('score').textContent = `${score}% (${correctAnswers} правильних відповідей з ${currentQuestion})`;
+}
+</script>
+</body>
+</html>

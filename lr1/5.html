@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Форма регістрації</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    form {
+        width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input,
+    select {
+        width: calc(100% - 12px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    
+</style>
+</head>
+<body>
+    <div>
+        <ol>	
+            <li><a href="1.html">Розмітка за допомогою таблиці</a></li>
+            <li><a href="2.html">Розмітка за допомогою плаваючих блоків</a></li>
+            <li><a href="3.html">Розмітка за допомогою inline -блоків</a></li>
+            <li><a href="4.html">Сторінка з малюнком</a></li>
+            <li><a href="5.html">Форма регістрації</a></li>
+        </ol>
+    </div>
+    <form action="#" method="post">
+        <label for="user_name">Прізвище, ім'я, по батькові:</label>
+        <input type="text" id="user_name" name="user_name" required>
+        
+        <label for="user_email">E-mail:</label>
+        <input type="email" id="user_email" name="user_email">
+        
+        <label for="user_birthdate">Дата народження:</label>
+        <input type="date" id="user_birthdate" name="user_birthdate" required>
+        
+        <label for="user_sex">Стать:</label>
+        <select id="user_sex" name="user_sex" required>
+            <option value="">Виберіть стать</option>
+            <option value="male">Чоловіча</option>
+            <option value="female">Жіноча</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
